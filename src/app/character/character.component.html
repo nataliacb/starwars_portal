@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-6">
+        <h3>Character List</h3>
+        <ul class="character">
+           <li *ngFor="let character of characters">
+                <a [routerLink]="['/characters', character.url.match('[0-9]+')[0]]">
+                    <span>{{character.name}}</span>
+                 </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
