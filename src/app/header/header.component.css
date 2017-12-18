@@ -19,3 +19,10 @@
     height: 45px;
     float: left;
 }
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+    font-weight: bold;
+    background-color: black;
+}

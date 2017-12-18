@@ -1,12 +1,12 @@
-<div id="search-component">
-  
-    <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
-  
-    <ul class="search-result">
-      <li *ngFor="let character of characters$ | async" >
-        <a [routerLink]="['/characters', character.url.match('[0-9]+')[0]]">
-          {{character.name}}
-        </a>
-      </li>
-    </ul>
-  </div>
+  <div>
+      <div class="input-group">
+          <input class="form-control" #textoProcurado (keyup)="0" placeholder="Search for ...">
+          <ul class="search-result">
+            <li *ngFor="let character of characters$ | async" >
+              <a [routerLink]="['/characters', character.url.match('[0-9]+')[0]]">
+                {{character.name}}
+              </a>
+            </li>
+          </ul>
+      </div>
+    </div>

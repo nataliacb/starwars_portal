@@ -1,6 +1,6 @@
 
 
-export class Character {    
+export class Character {
     name:string;
     url: string;
     height: string;
@@ -10,11 +10,5 @@ export class Character {
     eye_color: string;
     birth_year: string;
     gender: string;
-    homeworld: string;
-    films: string[];
-    species: string[];
-    vehicles: string[];
-    starships: string[];
-    created: string;
-    edited: string;
+    species: string;
 }

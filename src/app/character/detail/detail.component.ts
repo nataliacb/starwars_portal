@@ -4,6 +4,7 @@ import { Response } from '@angular/http';
 
 import { Character } from './../character.model';
 import { CharacterService } from './../character.service';
+import { forkJoin } from 'rxjs/observable/forkJoin';
 
 
 @Component({
@@ -23,10 +24,20 @@ export class DetailComponent implements OnInit {
 
   ngOnInit() {
     let id = this.route.params.subscribe(params => {
-      let id1 = params['id'];
+      let id = params['id'];
 
-      this.charactersService.getCharacter(id1)
-        .subscribe( character => this.character = character);
+      let char = this.charactersService.getCharacter(id);
+      let charSpecie = this.charactersService.getSpecies(id);
+
+      forkJoin([char, charSpecie]).subscribe(res => {
+        // results[0] is our character
+        // results[1] is our character homeworld
+        res[0].species = res[1].name;
+        this.character = res[0];
+      });
+
+      console.log(this.character);
+
     });
   }
 

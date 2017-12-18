@@ -5,15 +5,13 @@ import { HttpModule }    from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { routing } from './app.routes';
 
-
-//Importar Modules, Services e Routing criados
- 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { SearchComponent } from './search/search.component';
 import { charactersRouting } from './character/character.routing';
 import { CharacterModule } from './character/character.module';
+import { starshipsRouting } from './starship/starship.routing';
+import { StarshipModule } from './starship/starship.module';
 
 
 @NgModule({
@@ -21,15 +19,16 @@ import { CharacterModule } from './character/character.module';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    SearchComponent,
   ],
   imports: [
-    BrowserModule, 
-    FormsModule, 
+    BrowserModule,
+    FormsModule,
     HttpModule,
     CharacterModule,
     routing,
-    charactersRouting
+    charactersRouting,
+    starshipsRouting,
+    StarshipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

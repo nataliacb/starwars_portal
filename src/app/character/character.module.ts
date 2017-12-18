@@ -10,12 +10,12 @@ import { CharacterService } from './character.service';
 
 
 @NgModule({
-    declarations: [ 
+    declarations: [
         CharacterComponent,
-        DetailComponent
+        DetailComponent,
     ],
     exports: [ CharacterComponent ],
-    imports: [ 
+    imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,

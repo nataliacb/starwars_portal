@@ -26,9 +26,13 @@ export class CharacterService {
             .map(res => res.json());
     }
 
+    getSpecies(id) {
+        return this.http.get("https://swapi.co/api/species/"+  id)
+            .map(res => res.json());
+    }
+
     private getCharacterUrl(id) {
         return this.url + id;
     }
 
-    
 }

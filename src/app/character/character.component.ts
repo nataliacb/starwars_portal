@@ -15,9 +15,9 @@ import { CharacterService } from './character.service';
 export class CharacterComponent implements OnInit {
 
   characters: Character[] = [];
-  
+
   constructor(private charactersService: CharacterService) {}
-  
+
     ngOnInit() {
       this.charactersService.getCharacters()
         .subscribe(data => this.characters = data);
