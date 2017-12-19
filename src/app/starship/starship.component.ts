@@ -14,13 +14,18 @@ import { StarshipService } from './starship.service';
 })
 export class StarshipComponent implements OnInit {
 
-  starships: Starship[] = [];
+  starships: any[];
+  title: string;
+  rota: string;
 
-  constructor(private starshipService: StarshipService) {}
+  constructor(private starshipService: StarshipService) {
+    this.title = 'Starship';
+    this.rota = 'starships';
+  }
 
     ngOnInit() {
       this.starshipService.getStarships()
-        .subscribe(data => this.starships = data);
+        .subscribe((starships: Starship[]) => this.starships = starships);
     }
 
 }

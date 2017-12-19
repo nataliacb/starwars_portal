@@ -4,8 +4,6 @@ import { Response } from '@angular/http';
 import { Character } from './character.model';
 import { CharacterService } from './character.service';
 
-
-
 @Component({
   selector: 'app-character',
   templateUrl: './character.component.html',
@@ -14,13 +12,18 @@ import { CharacterService } from './character.service';
 })
 export class CharacterComponent implements OnInit {
 
-  characters: Character[] = [];
+  characters: any[];
+  title: string;
+  rota: string;
 
-  constructor(private charactersService: CharacterService) {}
+  constructor(private charactersService: CharacterService) {
+    this.title = 'Character';
+    this.rota = 'characters';
+  }
 
     ngOnInit() {
       this.charactersService.getCharacters()
-        .subscribe(data => this.characters = data);
+        .subscribe((characters: Character[])  => this.characters = characters);
     }
 
 }

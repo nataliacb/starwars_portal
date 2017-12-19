@@ -30,13 +30,11 @@ export class DetailComponent implements OnInit {
       let charSpecie = this.charactersService.getSpecies(id);
 
       forkJoin([char, charSpecie]).subscribe(res => {
-        // results[0] is our character
-        // results[1] is our character homeworld
+        // res[0] is our character
+        // res[1] is our character specie
         res[0].species = res[1].name;
         this.character = res[0];
       });
-
-      console.log(this.character);
 
     });
   }
